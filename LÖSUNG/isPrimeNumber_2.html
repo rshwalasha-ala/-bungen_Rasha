@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<body style="text-align: center; font-size: 20px;margin-top: 200px;">
+    Enter a number:
+    <input type="text" name="value" id="num"></input>
+    <button id="btn"> Submit </button>
+    <h4>Output: </h4>
+    <span id="result"></span>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                var number = $("#num").val();
+                output = "";
+                if (number == 1 || number == 2) {
+
+                    return;
+                }
+                for (i = 2; i <= number - 1; i++) {
+                    if (number % i == 0) {
+                        output = "false";
+                        break;
+                    } else {
+                        output = "true";
+                    }
+                }
+                $("#result").html(output);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<body style="text-align: center; font-size: 20px;">
+    <p id="result"></p>
+
+
+    <script>
+        Input1 = ["(1,2)", "(2,4)", "(5,7)", "(7,2)", "(9,5)"];
+        Input2 = ["(1,2)", "(3,2)", "(2,12)", "(5,2)"];
+        Input3 = ["(1,2)", "(2,4)", "(5,7)", "(7,2)", "(9,5)"]
+
+
+        document.getElementById("result").innerHTML = "Input1 is " + validate(Input1) + "\nInput2 is " + validate(Input2) + "\nInput3 is " + validate(Input3);
+        function validate(arr) {
+            var store = [];
+            var re;
+            for (var i = 0; i < arr.length; i++) {
+                re = (eval('list' + arr[i]));
+                if (typeof store[re[1]] == 'undefined') store[re[1]] = 0;
+                if (++store[re[1]] > 2) return "false";
+            }
+            function list(a, b) { return [a, b]; }
+            return "true";
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<body style="text-align: center; font-size: 20px;">
+    <h1>
+        <!DOCTYPE html>
+        <html>
+
+        <head>
+        </head>
+
+        <body>
+            <br><br>
+            <p id="result"></p>
+
+
+
+            <script>
+
+
+                function QuestionsMarks(str) {
+                    let num1 = 0,
+                        foundNum = false,
+                        question = 0,
+                        pair = 0
+                    for (let i = 0; i < str.length; i++) {
+                        if (foundNum && str[i] == '?') {
+                            question++
+                            continue
+                        }
+                        if (str[i].match(/[0-9]/g)) {
+                            foundNum = true
+                            if (num1 != 0 && (num1 + Number(str[i]) == 10 && question != 3)) return 'false'
+                            if (num1 + Number(str[i]) == 10 && question == 3) pair++
+                            num1 = Number(str[i])
+                            question = 0
+                        }
+                    }
+                    return (pair == 0) ? "false" : "true"
+                }
+
+
+                QuestionsMarks("arrb6???4xxbl5???eee5");
+                document.getElementById("result").innerHTML = QuestionsMarks("arrb6???4xxbl5???eee5");
+
+
+            </script>
+
+        </body>
+
+        </html>
